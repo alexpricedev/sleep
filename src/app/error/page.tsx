@@ -8,8 +8,8 @@ const ErrorPage = () => {
         <GradientText colorWay="red" text="There was an error" />
       </h1>
       <p className="text-2xl font-normal mb-4 text-gray-500 dark:text-white">
-        Something went wrong so we've not been able to save your sleep data for
-        last night.
+        {`Something went wrong so we've not been able to save
+        your sleep data for last night.`}
       </p>
       <p className="text-md font-normal mb-6 text-gray-500 dark:text-gray-400">
         Please go back and try again.
