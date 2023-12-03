@@ -4,10 +4,14 @@ import { SleepScoreInput } from "./_components/SleepScopeInput";
 import { SubmitButton } from "./_components/SubmitButton";
 import { addDailyEntries } from "./_actions";
 import { eventsOptions, feelingOptions, userOptions } from "./_options";
+import { GradientText } from "./_components/GradientText";
 
 const HomePage = () => {
   return (
     <div className="max-w-xl m-auto">
+      <p className="text-xl font-bold mb-4">
+        <GradientText colorWay="green" text={new Date().toDateString()} />
+      </p>
       <form action={addDailyEntries}>
         <div className="mb-4">
           <SingleOptionSelect
