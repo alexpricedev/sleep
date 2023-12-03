@@ -1,6 +1,6 @@
-import { redirect } from "next/navigation";
+const sheetURL = process.env.SHEETDB_URL;
 
-const sheetURL = "https://sheetdb.io/api/v1/2s6pe0xg7yxde";
+if (!sheetURL) throw new Error("Missing SHEETDB_URL env var");
 
 type SheetRowSchema = {
   id: string;
