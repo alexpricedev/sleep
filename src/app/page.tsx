@@ -1,30 +1,26 @@
-import { addDailyEntry } from "./_actions";
+import { MultiOptionSelect } from "./_components/MultiOptionSelect";
+import { SingleOptionSelect } from "./_components/SingleOptionSelect";
 import { SleepScoreInput } from "./_components/SleepScopeInput";
 import { SubmitButton } from "./_components/SubmitButton";
-import { SingleOptionSelect } from "./_components/SingleOptionSelect";
-import { MultiOptionSelect } from "./_components/MultiOptionSelect";
+import { addDailyEntries } from "./_actions";
+import { eventsOptions, feelingOptions, userOptions } from "./_options";
 
 const HomePage = () => {
   return (
     <div className="max-w-xl m-auto">
-      <form action={addDailyEntry}>
+      <form action={addDailyEntries}>
         <div className="mb-4">
           <SingleOptionSelect
-            title="Username"
             formName="username"
-            options={["Bob", "Alex"]}
+            options={userOptions}
+            title="User"
           />
         </div>
         <div className="mb-4">
           <MultiOptionSelect
-            title="Conditions"
             formName="events"
-            options={[
-              "No caffeine after 10am",
-              "No food after 8pm",
-              "Bed by 10pm",
-              "No phone in bed",
-            ]}
+            options={eventsOptions}
+            title="Conditions"
           />
         </div>
         <div className="mb-4">
@@ -32,9 +28,9 @@ const HomePage = () => {
         </div>
         <div className="mb-6">
           <SingleOptionSelect
-            title="How do you feel?"
             formName="feeling"
-            options={["Great", "Bad", "Okay", "Good"]}
+            options={feelingOptions}
+            title="How do you feel?"
           />
         </div>
         <SubmitButton />

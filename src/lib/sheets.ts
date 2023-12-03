@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 const sheetURL = "https://sheetdb.io/api/v1/2s6pe0xg7yxde";
 
 type SheetRowSchema = {
@@ -11,8 +13,8 @@ type SheetRowSchema = {
 
 type SheetRowCreateData = Omit<SheetRowSchema, "id" | "date">;
 
-type SheetResponse = {
-  created: number;
+type SheetDBResponse = {
+  created: number; // Number of rows created
 };
 
 const prepareData = (data: SheetRowCreateData[]): SheetRowSchema[] =>
@@ -24,18 +26,15 @@ const prepareData = (data: SheetRowCreateData[]): SheetRowSchema[] =>
 
 export const submitRows = async (
   data: SheetRowCreateData[],
-): Promise<SheetResponse> => {
+): Promise<{ success: boolean }> => {
   return fetch(sheetURL, {
     method: "POST",
+    body: JSON.stringify({ data: prepareData(data) }),
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ data: prepareData(data) }),
   })
     .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
-      return data;
-    });
+    .then(({ created }: SheetDBResponse) => ({ success: created > 0 }));
 };

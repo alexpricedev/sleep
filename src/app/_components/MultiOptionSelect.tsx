@@ -16,7 +16,6 @@ export const MultiOptionSelect = (props: {
   options: string[];
 }) => {
   const { title, formName, options } = props;
-  const [first, ...rest] = options;
 
   return (
     <>
@@ -31,18 +30,22 @@ export const MultiOptionSelect = (props: {
           "border border-gray-200 dark:border-gray-600",
         )}
       >
-        {rest.map((option) => (
+        {options.map((option, idx) => (
           <li
+            className={cn(
+              idx === options.length - 1 // last element needs no border-b
+                ? "w-full dark:border-gray-600"
+                : "w-full border-b border-gray-200 dark:border-gray-600",
+            )}
             key={option}
-            className="w-full border-b border-gray-200 dark:border-gray-600"
           >
             <div className="flex items-center ps-3">
               <input
-                id={option}
-                type="checkbox"
-                name={formName}
-                value={option}
                 className={inputCN}
+                id={option}
+                name={formName}
+                type="checkbox"
+                value={option}
               />
               <label htmlFor={option} className={labelCN}>
                 {option}
@@ -50,20 +53,6 @@ export const MultiOptionSelect = (props: {
             </div>
           </li>
         ))}
-        <li className="w-full dark:border-gray-600">
-          <div className="flex items-center ps-3">
-            <input
-              id={first}
-              name={formName}
-              type="checkbox"
-              value={first}
-              className={inputCN}
-            />
-            <label htmlFor={first} className={labelCN}>
-              {first}
-            </label>
-          </div>
-        </li>
       </ul>
     </>
   );

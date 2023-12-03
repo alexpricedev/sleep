@@ -16,7 +16,6 @@ export const SingleOptionSelect = (props: {
   options: string[];
 }) => {
   const { title, formName, options } = props;
-  const [first, ...rest] = options;
 
   return (
     <>
@@ -31,18 +30,23 @@ export const SingleOptionSelect = (props: {
           "bg-white dark:bg-gray-700",
         )}
       >
-        {rest.map((option) => (
+        {options.map((option, idx) => (
           <li
             key={option}
-            className="w-full border-b border-gray-200 dark:border-gray-600"
+            className={cn(
+              idx === options.length - 1 // last element needs no border-b
+                ? "w-full dark:border-gray-600"
+                : "w-full border-b border-gray-200 dark:border-gray-600",
+            )}
           >
             <div className="flex items-center ps-3">
               <input
+                className={inputCN}
                 id={option}
                 name={formName}
+                required
                 type="radio"
                 value={option}
-                className={inputCN}
               />
               <label htmlFor={option} className={labelCN}>
                 {option}
@@ -50,20 +54,6 @@ export const SingleOptionSelect = (props: {
             </div>
           </li>
         ))}
-        <li className="w-full dark:border-gray-600">
-          <div className="flex items-center ps-3">
-            <input
-              id={first}
-              name={formName}
-              type="radio"
-              value={first}
-              className={inputCN}
-            />
-            <label htmlFor={first} className={labelCN}>
-              {first}
-            </label>
-          </div>
-        </li>
       </ul>
     </>
   );
