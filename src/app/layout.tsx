@@ -12,7 +12,6 @@ export const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  userScalable: "no",
 };
 
 const RootLayout = (props: { children: React.ReactNode }) => {

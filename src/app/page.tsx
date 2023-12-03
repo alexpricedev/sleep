@@ -24,8 +24,11 @@ const HomePage = () => {
           <MultiOptionSelect
             formName="events"
             options={eventsOptions}
-            title="Conditions"
+            title="Yesterday's conditions"
           />
+          <p className="text-sm font-normal pt-3 text-gray-500 dark:text-white opacity-50">
+            Tip: You can select multiple conditions
+          </p>
         </div>
         <div className="mb-4">
           <SleepScoreInput />
