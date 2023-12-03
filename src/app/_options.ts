@@ -1,6 +1,7 @@
 export const eventsOptions = [
   "Travel day",
   "Stressful day",
+  "High activity day",
   "Afternoon caffeine consumed",
   "Evening caffeine consumed",
   "Alcohol consumed",
