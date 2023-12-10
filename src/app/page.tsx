@@ -30,7 +30,7 @@ const HomePage = () => {
         </div>
 
         <h2 className="mb-4 text-white font-bold text-2xl">
-          Yesterday's conditions
+          {"Yesterday's conditions"}
         </h2>
 
         <div className="mb-4">
