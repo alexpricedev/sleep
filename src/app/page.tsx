@@ -4,33 +4,98 @@ import { SleepScoreInput } from "./_components/SleepScopeInput";
 import { SubmitButton } from "./_components/SubmitButton";
 import { Today } from "./_components/Today";
 import { addDailyEntries } from "./_actions";
-import { eventsOptions, feelingOptions, userOptions } from "./_options";
+import {
+  activityOptions,
+  caffeineOptions,
+  feelingOptions,
+  napOptions,
+  otherEventOptions,
+  timingOptions,
+  userOptions,
+  windDownOptions,
+  workOptions,
+} from "./_options";
 
 const HomePage = () => {
   return (
     <div className="max-w-xl m-auto">
       <Today />
       <form action={addDailyEntries}>
-        <div className="mb-4">
+        <div className="mb-8">
           <SingleOptionSelect
             formName="username"
             options={userOptions}
             title="User"
           />
         </div>
+
+        <h2 className="mb-4 text-white font-bold text-2xl">
+          Yesterday's conditions
+        </h2>
+
         <div className="mb-4">
           <MultiOptionSelect
             formName="events"
-            options={eventsOptions}
-            title="Yesterday's conditions"
+            options={workOptions}
+            title="Work"
           />
-          <p className="text-sm font-normal pt-3 text-gray-500 dark:text-white opacity-50">
-            Tip: You can select multiple conditions
+        </div>
+
+        <div className="mb-4">
+          <MultiOptionSelect
+            formName="events"
+            options={activityOptions}
+            title="Activity"
+          />
+        </div>
+
+        <div className="mb-4">
+          <MultiOptionSelect
+            formName="events"
+            options={caffeineOptions}
+            title="Caffeine"
+          />
+        </div>
+
+        <div className="mb-4">
+          <MultiOptionSelect
+            formName="events"
+            options={timingOptions}
+            title="Timing"
+          />
+        </div>
+
+        <div className="mb-4">
+          <MultiOptionSelect
+            formName="events"
+            options={napOptions}
+            title="Naps"
+          />
+        </div>
+
+        <div className="mb-4">
+          <MultiOptionSelect
+            formName="events"
+            options={windDownOptions}
+            title="Pre-bed wind down"
+          />
+        </div>
+
+        <div className="mb-4">
+          <MultiOptionSelect
+            formName="other"
+            options={otherEventOptions}
+            title="Other factors"
+          />
+          <p className="text-sm italic font-normal pt-2 text-gray-500 dark:text-white opacity-70">
+            Tip: You can select multiple options here
           </p>
         </div>
+
         <div className="mb-4">
           <SleepScoreInput />
         </div>
+
         <div className="mb-6">
           <SingleOptionSelect
             formName="feeling"
@@ -38,6 +103,7 @@ const HomePage = () => {
             title="How do you feel?"
           />
         </div>
+
         <SubmitButton />
       </form>
     </div>
