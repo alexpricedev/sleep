@@ -3,6 +3,7 @@ import { SingleOptionSelect } from "./_components/SingleOptionSelect";
 import { SleepScoreInput } from "./_components/SleepScopeInput";
 import { SubmitButton } from "./_components/SubmitButton";
 import { Today } from "./_components/Today";
+import { Textarea } from "./_components/Textarea";
 import { addDailyEntries } from "./_actions";
 import {
   activityOptions,
@@ -101,7 +102,7 @@ const HomePage = () => {
 
         <div className="mb-4">
           <MultiOptionSelect
-            formName="other"
+            formName="events"
             options={otherEventOptions}
             title="Other factors"
           />
@@ -114,11 +115,19 @@ const HomePage = () => {
           <SleepScoreInput />
         </div>
 
-        <div className="mb-6">
+        <div className="mb-4">
           <SingleOptionSelect
             formName="feeling"
             options={feelingOptions}
             title="How do you feel?"
+          />
+        </div>
+
+        <div className="mb-6">
+          <Textarea
+            formName="notes"
+            title="Notes"
+            placeholder="Write any notes you have here..."
           />
         </div>
 

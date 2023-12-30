@@ -8,6 +8,7 @@ export const addDailyEntries = async (formData: FormData) => {
   const events = formData.getAll("events");
   const sleepScore = formData.get("sleep_score");
   const feeling = formData.get("feeling");
+  const notes = formData.get("notes");
 
   if (!username || !Array.isArray(events) || !sleepScore || !feeling) {
     redirect("/error");
@@ -23,6 +24,7 @@ export const addDailyEntries = async (formData: FormData) => {
       event: event.toString(),
       sleep_score: sleepScore.toString(),
       feeling: feeling.toString(),
+      notes: notes?.toString() || "",
     })),
   );
 
