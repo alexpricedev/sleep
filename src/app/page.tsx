@@ -6,10 +6,12 @@ import { Today } from "./_components/Today";
 import { addDailyEntries } from "./_actions";
 import {
   activityOptions,
+  alarmOptions,
   caffeineOptions,
   feelingOptions,
   napOptions,
   otherEventOptions,
+  sleepAidOptions,
   timingOptions,
   userOptions,
   windDownOptions,
@@ -78,6 +80,22 @@ const HomePage = () => {
             formName="events"
             options={windDownOptions}
             title="Pre-bed wind down"
+          />
+        </div>
+
+        <div className="mb-4">
+          <MultiOptionSelect
+            formName="events"
+            options={sleepAidOptions}
+            title="Sleep aids"
+          />
+        </div>
+
+        <div className="mb-4">
+          <MultiOptionSelect
+            formName="events"
+            options={alarmOptions}
+            title="Wake up strategy"
           />
         </div>
 

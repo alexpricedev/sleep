@@ -21,6 +21,20 @@ export const windDownOptions = [
   "Yoga before bed",
   "Breathwork before bed",
   "Reading before bed",
+  "Audio before bed",
+  "Meditation before bed",
+];
+
+export const sleepAidOptions = [
+  "Ear plugs",
+  "Eye mask",
+  "Sleeping pills/medication",
+];
+
+export const alarmOptions = [
+  "Woke up to an alarm",
+  "Woke up before alarm",
+  "Woke up naturally (no alarm)",
 ];
 
 export const otherEventOptions = [
