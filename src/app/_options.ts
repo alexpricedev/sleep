@@ -23,6 +23,7 @@ export const windDownOptions = [
   "Reading before bed",
   "Audio before bed",
   "Meditation before bed",
+  "Sex before bed",
 ];
 
 export const sleepAidOptions = [
